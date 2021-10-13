@@ -27,6 +27,7 @@ public class DonarDto {
 	private String password;
 	@NotBlank
 	@Email
+	@Length(min = 3, max = 50)
 	private String emailId;
 	@NotNull
 	@Min(value = 1000000000)

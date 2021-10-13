@@ -8,8 +8,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.iiht.training.ngo.dto.DonarDto;
-import com.iiht.training.ngo.dto.DonationRequestDto;
 import com.iiht.training.ngo.dto.NgoDto;
 import com.iiht.training.ngo.entity.NgoEntity;
 import com.iiht.training.ngo.exceptions.NgoNotFoundException;
@@ -69,24 +67,6 @@ public class NgoServiceImpl implements NgoService {
 			ngoDtos.add(ngoDto);
 		}
 		return ngoDtos;
-	}
-
-	@Override
-	public List<DonarDto> getAllDonarsByNgoId(Long ngoId) {
-		
-		return null;
-	}
-
-	@Override
-	public List<DonationRequestDto> getAllRequestsByNgoId(Long ngoId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public DonationRequestDto getRequestStatusByRequestIdAndNgoId(Long requestId, Long ngoId) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

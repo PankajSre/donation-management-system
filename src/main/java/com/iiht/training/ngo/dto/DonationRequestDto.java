@@ -7,6 +7,10 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class DonationRequestDto {
 
 	private Long requestId;
@@ -17,8 +21,11 @@ public class DonationRequestDto {
 	@NotNull
 	private Long ngoId;
 	@NotEmpty
+	@Length(min = 3, max = 100)
 	private String requestStatus;
+	@NotNull
 	@Future
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate donationEndDate;
 
 	public Long getRequestId() {
@@ -87,6 +94,8 @@ public class DonationRequestDto {
 				&& Objects.equals(donationEndDate, other.donationEndDate) && Objects.equals(ngoId, other.ngoId)
 				&& Objects.equals(requestId, other.requestId) && Objects.equals(requestStatus, other.requestStatus);
 	}
+
+	
 	
 
 }

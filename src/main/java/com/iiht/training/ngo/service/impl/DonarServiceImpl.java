@@ -14,7 +14,7 @@ import com.iiht.training.ngo.exceptions.DonarNotFoundException;
 import com.iiht.training.ngo.repository.DonarRepository;
 import com.iiht.training.ngo.service.DonarService;
 
-@Service
+@Service(value = "donarService")
 public class DonarServiceImpl implements DonarService {
 
 	@Autowired

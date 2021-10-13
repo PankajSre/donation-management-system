@@ -18,6 +18,7 @@ public class DonationRequestEntity {
 	private Double amount;
 	private Long donarId;
 	private Long ngoId;
+	private String requestStatus;
 	private LocalDate donationEndDate;
 
 	public Long getRequestId() {
@@ -60,4 +61,13 @@ public class DonationRequestEntity {
 		this.donationEndDate = donationEndDate;
 	}
 
+	public String getRequestStatus() {
+		return requestStatus;
+	}
+
+	public void setRequestStatus(String requestStatus) {
+		this.requestStatus = requestStatus;
+	}
+
+	
 }

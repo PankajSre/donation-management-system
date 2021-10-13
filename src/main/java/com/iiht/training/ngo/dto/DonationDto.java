@@ -6,8 +6,9 @@ import java.util.Objects;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class DonationDto {
 
@@ -21,7 +22,8 @@ public class DonationDto {
 	private String donationType;
 	@NotNull
 	private Double amount;
-	@CreationTimestamp
+	@NotNull
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate donationDate;
 
 	public Long getDonationId() {
