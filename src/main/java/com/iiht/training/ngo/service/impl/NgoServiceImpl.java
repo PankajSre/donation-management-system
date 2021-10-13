@@ -53,7 +53,7 @@ public class NgoServiceImpl implements NgoService {
 			BeanUtils.copyProperties(ngoEntity.get(), ngoDto);
 			return ngoDto;
 		} else {
-			throw new NgoNotFoundException("NGO with id " + ngoId + " does not exists");
+			throw new NgoNotFoundException("NGO with id " + ngoId + " not found");
 		}
 	}
 
