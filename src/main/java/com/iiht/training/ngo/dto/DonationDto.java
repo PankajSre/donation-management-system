@@ -3,6 +3,7 @@ package com.iiht.training.ngo.dto;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -24,6 +25,7 @@ public class DonationDto {
 	private Double amount;
 	@NotNull
 	@JsonFormat(pattern = "yyyy-MM-dd")
+	@Future
 	private LocalDate donationDate;
 
 	public Long getDonationId() {

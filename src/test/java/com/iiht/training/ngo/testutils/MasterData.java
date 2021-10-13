@@ -97,7 +97,7 @@ public class MasterData {
 		donationDto.setNgoId(1L);
 		donationDto.setDonarId(1L);
 		donationDto.setAmount(50000.0);
-		donationDto.setDonationDate(LocalDate.now());
+		donationDto.setDonationDate(LocalDate.of(2022, 10, 20));
 		donationDto.setDonationType("Health");
 		return donationDto;
 

@@ -26,15 +26,10 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.iiht.training.ngo.controller.DonarController;
-import com.iiht.training.ngo.controller.NgoController;
 import com.iiht.training.ngo.dto.DonarDto;
 import com.iiht.training.ngo.dto.DonationDto;
-import com.iiht.training.ngo.dto.DonationRequestDto;
-import com.iiht.training.ngo.dto.NgoDto;
 import com.iiht.training.ngo.service.DonarService;
-import com.iiht.training.ngo.service.DonationRequestService;
 import com.iiht.training.ngo.service.DonationService;
-import com.iiht.training.ngo.service.NgoService;
 import com.iiht.training.ngo.testutils.MasterData;
 
 @WebMvcTest(DonarController.class)
@@ -305,13 +300,14 @@ public class DonarControllerTest {
 		DonationDto donationDto = MasterData.getDonationDto();
 		DonationDto savedDonationDto = MasterData.getDonationDto();
 		savedDonationDto.setDonationId(1L);
-
 		when(this.donationService.registerDonation(donationDto)).thenReturn(savedDonationDto);
 		RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/donations/add-donation")
 				.content(MasterData.asJsonString(donationDto)).contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON);
 
 		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+		System.out.println(result.getResponse().getContentAsString());
+		System.out.println(MasterData.asJsonString(savedDonationDto));
 		yakshaAssert(currentTest(),
 				(result.getResponse().getContentAsString().contentEquals(MasterData.asJsonString(savedDonationDto))
 						? "true"
